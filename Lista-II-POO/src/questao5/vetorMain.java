@@ -29,6 +29,9 @@ public class vetorMain {
 				//e.printStackTrace();
 				break;
 			}
+			finally {
+				scan.close();
+			}
 			
 		}
 		

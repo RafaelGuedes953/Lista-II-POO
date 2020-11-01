@@ -7,7 +7,7 @@ public class voo {
 	private int id, qtdPassageiros, tam=100;
 	private int[] assentos, livres;
 	
-	public voo(int id, int dia, int mes, int ano) {
+	public voo(int id, int dia, int mes, int ano) { //construtor
 		this.id = id;
 		d = new data(dia, mes, ano);
 		if (d.getDia()==1)
@@ -17,6 +17,14 @@ public class voo {
 		livres = new int[tam];
 		for(int i=0;i<tam;i++) //preenche vetor dos assentos livres
 			livres[i]=i+1; //número dos assentos começando de 1
+	}
+	
+	public void setTamanho(int tam) {
+		this.tam=tam;
+	}
+	
+	public int getTamanho() {
+		return tam;
 	}
 	
 	public int getVoo() {
@@ -49,7 +57,7 @@ public class voo {
 	}
 	
 	public int vagas() { //retorna o número de vagas disponíveis
-		System.out.println("Quantidade de vagas dsiponíveis: " + (tam-qtdPassageiros));
+		System.out.println("Quantidade de vagas disponíveis: " + (tam-qtdPassageiros));
 		return tam-qtdPassageiros;
 	}
 	

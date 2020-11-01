@@ -4,7 +4,6 @@ import questao6.data;
 
 public class voo {
 	private data d;
-	private operacoesVetor op = new operacoesVetor();
 	private int id, qtdPassageiros, tam=100;
 	private int[] assentos, livres;
 	
@@ -54,8 +53,19 @@ public class voo {
 		return tam-qtdPassageiros;
 	}
 	
+	public int menor(int v[], int tam) {
+		int men=v[0];
+		
+		for(int i=0;i<tam;i++) {
+			if(v[i]!=0)
+				return v[i];
+		}
+		
+		return men;
+	}
+	
 	public int proximoLivre() {
-		return op.menor(livres, tam); //retorna o indice do primeiro assento disponível +1
+		return menor(livres, tam); //retorna o indice do primeiro assento disponível +1
 	}
 
 }

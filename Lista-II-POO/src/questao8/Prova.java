@@ -1,6 +1,7 @@
 package questao8;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Prova {
 	private double nota;
@@ -8,6 +9,7 @@ public class Prova {
 	//lista de char que conterá as respostas do aluno
 	ArrayList<Character> respostas = new ArrayList<>(); 
 	Gabarito gab = new Gabarito();
+	Scanner scan = new Scanner(System.in);
 	
 	public Prova(Gabarito gab) { //método construtor
 		this.gab=gab;
@@ -25,6 +27,22 @@ public class Prova {
 	
 	public void responderQ(char resp) { //respostasAluno()
 		respostas.add(resp);
+	}
+	
+	public void responderProva(int tam) {
+		char r;
+		
+		//índice 0 -> resposta da questão 1
+		for(int i=0;i<tam;i++) {
+			System.out.println("Digite a resposta para a questão [" + (i+1) + "]: ");
+			this.responderQ(scan.next().charAt(0)); //lê o primeiro char recebido do teclado
+			r=scan.next().charAt(0);
+			if(Character.isLetter(r)) //verifica se o que foi digitado é um char
+				this.responderQ(r);
+			else
+				i--;
+			scan.nextLine();
+		}
 	}
 	
 	private void calcAcertos() {

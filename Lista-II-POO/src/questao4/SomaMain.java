@@ -1,8 +1,9 @@
 package questao4;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
-public class somaMain {
+public class SomaMain {
 
 	public static void main(String[] args) throws ExcecaoAcimaDeCem {
 		int soma=0, cont=0, n;
@@ -17,9 +18,9 @@ public class somaMain {
 				soma+=n;
 				cont++;
 			}
-			catch(ArithmeticException | ExcecaoAcimaDeCem e){
+			catch(ArithmeticException | ExcecaoAcimaDeCem | InputMismatchException e){
 				System.out.println("Vish, deu bronca aqui hein...");
-				e.printStackTrace();
+				e.printStackTrace(); //exibir desc do erro
 				break;
 			}
 			

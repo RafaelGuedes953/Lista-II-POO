@@ -1,9 +1,9 @@
 package questao1;
 
-public class elevador {
+public class Elevador {
 	private int andares, andarAtual, capacidade, qtdPessoas;
 	
-	public elevador(int andares, int capacidade) { //inicializar
+	public Elevador(int andares, int capacidade) { //inicializar
 		setAndares(andares);
 		setCapacidade(capacidade);
 		setQtdPessoas(0);
@@ -90,6 +90,41 @@ public class elevador {
 	
 	public void sair() {
 		setQtdPessoas(1);
+	}
+	
+	public int menuElevador() {
+		int op=1;
+		do {
+			
+		} while(op!=0);
+		
+		System.out.println("***** Menu Elevador *****");
+		System.out.println("	1 - Entrar");
+		System.out.println("	2 - Sair");
+		System.out.println("	3 - Subir");
+		System.out.println("	4 - Descer");
+		System.out.println("	0 - Encerrar");
+		System.out.println("*************************");
+		
+		switch(op) {
+			case 1:
+				entrar();
+				break;
+			case 2:
+				sair();
+				break;
+			case 3:
+				subir();
+				break;
+			case 4:
+				descer();
+				break;
+			default:
+				menuElevador();
+				
+		}
+		
+		return 0;
 	}
 
 }

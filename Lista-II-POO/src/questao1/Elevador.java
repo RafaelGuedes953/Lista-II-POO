@@ -1,13 +1,14 @@
 package questao1;
 
+import java.util.Scanner;
+
 public class Elevador {
-	private int andares, andarAtual, capacidade, qtdPessoas;
+	private int andares, andarAtual=0, capacidade, qtdPessoas=0;
+	Scanner scan = new Scanner(System.in);
 	
 	public Elevador(int andares, int capacidade) { //inicializar
 		setAndares(andares);
 		setCapacidade(capacidade);
-		setQtdPessoas(0);
-		setAndarAtual(0);
 	}
 
 	public int getAndares() {
@@ -41,7 +42,7 @@ public class Elevador {
 			if(coef==1 && (getQtdPessoas()>0))
 				qtdPessoas-=1;
 			else {
-				if(getAndarAtual()==getCapacidade())
+				if(getQtdPessoas()==getCapacidade())
 					System.out.println("Elevador cheio!\n");
 				else
 					System.out.println("Elevador vazio!\n");
@@ -86,17 +87,17 @@ public class Elevador {
 	
 	public void entrar() {
 		setQtdPessoas(0);
+		System.out.println("Quantidade atual = "+getQtdPessoas()+"\n");
+		System.out.println("Capacidade = "+getCapacidade()+"\n");
 	}
 	
 	public void sair() {
 		setQtdPessoas(1);
+		System.out.println("Quantidade atual = "+getQtdPessoas()+"\n");
+		System.out.println("Capacidade = "+getCapacidade()+"\n");
 	}
 	
 	public int menuElevador() {
-		int op=1;
-		do {
-			
-		} while(op!=0);
 		
 		System.out.println("***** Menu Elevador *****");
 		System.out.println("	1 - Entrar");
@@ -105,8 +106,12 @@ public class Elevador {
 		System.out.println("	4 - Descer");
 		System.out.println("	0 - Encerrar");
 		System.out.println("*************************");
+		System.out.println("\nDigite uma opção: ");
+		int op = scan.nextInt();
 		
 		switch(op) {
+			case 0:
+				break;
 			case 1:
 				entrar();
 				break;
@@ -120,11 +125,9 @@ public class Elevador {
 				descer();
 				break;
 			default:
-				menuElevador();
-				
+				menuElevador(); //opção digitada inválida	
 		}
-		
-		return 0;
+		return op;
 	}
 
 }

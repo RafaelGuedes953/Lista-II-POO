@@ -2,7 +2,7 @@ package questao5;
 
 import java.util.Scanner;
 
-public class vetorMain {
+public class VetorMain {
 
 	public static void main(String[] args) {
 		int i, tam=10, pos;

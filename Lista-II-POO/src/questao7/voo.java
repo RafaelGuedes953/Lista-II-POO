@@ -7,6 +7,8 @@ public class voo {
 	private int id, qtdPassageiros, tam=100;
 	private int[] assentos, livres;
 	
+	//refazer utilizando ArrayList
+	
 	public voo(int id, int dia, int mes, int ano) { //construtor
 		this.id = id;
 		d = new data(dia, mes, ano);

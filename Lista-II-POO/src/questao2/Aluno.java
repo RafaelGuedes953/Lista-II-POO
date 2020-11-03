@@ -40,9 +40,17 @@ public class Aluno {
 	public ArrayList<String> getExerc() {
 		return exerc;
 	}
+	
+	public void mostraExerc() {
+		System.out.println("**** Exercícios ****");
+		for(int i=0;i<exerc.size();i++)
+			System.out.println("["+i+"] -> "+exerc.get(i));
+	}
 
 	public void setExerc(String exerc) {
 		this.exerc.add(exerc);
+
+		//e = new ArrayList<>();
 	}
 	
 	public void atribuiProf(int profId) {

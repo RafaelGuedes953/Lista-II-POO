@@ -7,6 +7,7 @@ public class Academia {
 	private String nome;
 	ArrayList<Professor> p; //p->professores
 	ArrayList<Aluno> a; //a->alunos
+	
 	Scanner scan = new Scanner(System.in);
 	
 	public Academia(String nome) {
@@ -35,15 +36,15 @@ public class Academia {
 	
 	public void entradaAluno(String cpf) {
 		Aluno alunoAtual;
+		Professor pAtual;
 		
 		for(int i=0;i<a.size();i++) {
 			alunoAtual=a.get(i);
 			if(cpf.equals(alunoAtual.getCpf())){
 				System.out.println("Entrada liberada!");
-				/* terminal2
-				 * exibe lista de exercicios
-				 * exibe nome do professor responsável
-				 */
+				pAtual=p.get(alunoAtual.getProfId());
+				System.out.println("Professor -> "+pAtual.getNome());
+				alunoAtual.mostraExerc();
 				break;
 			}
 			else
@@ -56,30 +57,37 @@ public class Academia {
 		Aluno alunoAtual;
 		Professor pAtual;
 		
-		System.out.println("**** Alunos ****");
-		for(int i=0;i<a.size();i++) {
-			alunoAtual=a.get(i);
-			System.out.println("["+i+"] Nome -> "+alunoAtual.getNome());
-			System.out.println("	CPF -> "+alunoAtual.getCpf());
-			if(alunoAtual.getProfId()!=-1) {
-				pAtual=p.get(alunoAtual.getProfId());
-				System.out.println("	Professor -> "+pAtual.getNome());
+		if(a.size()>0) {
+			System.out.println("**** Alunos ****");
+			for(int i=0;i<a.size();i++) {
+				alunoAtual=a.get(i);
+				System.out.println("["+i+"] Nome -> "+alunoAtual.getNome());
+				System.out.println("	CPF -> "+alunoAtual.getCpf());
+				if(alunoAtual.getProfId()!=-1) {
+					pAtual=p.get(alunoAtual.getProfId());
+					System.out.println("	Professor -> "+pAtual.getNome());
+				}
+				else
+					System.out.println("	Professor -> Não atribuído");
 			}
-			else
-				System.out.println("	Professor -> Não atribuído");
+			System.out.println("****************");
 		}
-		System.out.println("****************");
+		else
+			System.out.println("Nenhum aluno cadastrado ainda!");
 	}
 	
 	public void mostrarProfessores() {
 		Professor profAtual;
-		
-		System.out.println("**** Professores ****");
-		for(int i=0;i<p.size();i++) {
-			profAtual=p.get(i);
-			System.out.println("["+i+"] Nome -> "+profAtual.getNome());
+		if(p.size()>0) {
+			System.out.println("**** Professores ****");
+			for(int i=0;i<p.size();i++) {
+				profAtual=p.get(i);
+				System.out.println("["+i+"] Nome -> "+profAtual.getNome());
+			}
+			System.out.println("*********************");
 		}
-		System.out.println("*********************");
+		else
+			System.out.println("Nenhum professor cadastrado ainda!");
 	}
 	
 	public void atribuirProf(String cpf, int id) {
@@ -98,9 +106,21 @@ public class Academia {
 		}
 	}
 	
+	public void editarExercicios(int ind, int tam) {
+		Aluno alunoAtual=a.get(ind);
+		
+		if(tam>0)
+			for(int i=0;i<tam;i++) {
+				System.out.print("\nDigite o exercício ["+i+"]: ");
+				alunoAtual.exerc.add(scan.nextLine());
+			}
+		else
+			System.out.println("O tamanho deve ser maior que zero! Tente novamente!");
+	}
+	
 	public int Menu() {
 		String nome, cpf;
-		int id, op;
+		int id, tam, op;
 		
 		System.out.println("***** Menu Academia *****");
 		System.out.println("	1 - Adicionar aluno");
@@ -109,6 +129,7 @@ public class Academia {
 		System.out.println("	4 - Mostrar professores");
 		System.out.println("	5 - Mostrar alunos");
 		System.out.println("	6 - Atribuir professor");
+		System.out.println("	7 - Adicionar exercícios");
 		System.out.println("	0 - Encerrar");
 		System.out.println("*************************");
 		System.out.println("\nDigite uma opção: ");
@@ -149,9 +170,23 @@ public class Academia {
 				System.out.println("Digite o CPF: ");
 				cpf=scan.nextLine();
 				mostrarProfessores();
-				System.out.println("Digite o id do Professor: ");
+				
+				if(p.size()>0) {
+					System.out.println("Digite o id do Professor: ");
+					id=Integer.parseInt(scan.nextLine());
+					atribuirProf(cpf, id);
+				}
+				else
+					System.out.println("Favor cadadtrar um professor antes da atribuição!");
+				break;
+				
+			case 7:
+				//editar lista de exercícios de determinado aluno
+				System.out.println("Índice do aluno: ");
 				id=Integer.parseInt(scan.nextLine());
-				atribuirProf(cpf, id);
+				System.out.println("Quantos exercícios serão adicionados? ");
+				tam=Integer.parseInt(scan.nextLine());
+				editarExercicios(id, tam);
 				break;
 				
 			default:

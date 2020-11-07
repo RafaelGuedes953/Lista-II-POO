@@ -1,12 +1,12 @@
 package questao9;
 
-import questao7.voo;
+import questao7.Voo;
 
-public class VooDivisao extends voo{
+public class VooDivisao extends Voo{
 	private int fumantes;
 
-	public VooDivisao(int id, int dia, int mes, int ano, int vagas, int fuma) {
-		super(id, dia, mes, ano);
+	public VooDivisao(int dia, int mes, int ano, int vagas, int fuma) {
+		super(dia, mes, ano);
 		super.setTamanho(vagas);
 		fumantes=fuma;
 	}

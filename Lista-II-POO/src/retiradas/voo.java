@@ -1,4 +1,4 @@
-package questao7;
+package retiradas;
 
 import questao6.data;
 
@@ -6,11 +6,14 @@ public class voo {
 	private data d;
 	private int id, qtdPassageiros, tam=100;
 	private int[] assentos, livres;
+	//contador de instâncias da classe, utilizado para atribuir número do voo
+	public static int contVoo=0; 
 	
 	//refazer utilizando ArrayList
 	
 	public voo(int id, int dia, int mes, int ano) { //construtor
-		this.id = id;
+		this.id = contVoo;
+		contVoo++;
 		d = new data(dia, mes, ano);
 		if (d.getAno()==1)
 			System.out.println("Valor de data inválida inserida!!!");

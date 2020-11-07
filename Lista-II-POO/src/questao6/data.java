@@ -7,8 +7,7 @@ public class data {
 		if(mes==2 && (dia<0 || dia>29)) //mês fevereiro não tem mais de 29 dias
 			setAnoPadrao();
 		else {
-			if((mes==4 || mes==6 || mes==9 || mes==11)
-				&& (dia<0 || dia>30)) { //meses que não tem mais de 30 dias
+			if(((mes==4 || mes==6 || mes==9 || mes==11) && (dia<0 || dia>30)) || mes<0 || mes>12) { //meses que não tem mais de 30 dias
 				setAnoPadrao();
 			}
 			else {
@@ -75,6 +74,12 @@ public class data {
 	
 	public int getAno() {
 		return ano;
+	}
+	
+
+	
+	public void getData() {
+		System.out.println("Data atual: "+getDia()+"/"+getMes()+"/"+getAno());
 	}
 	
 	public int compara(data d) {

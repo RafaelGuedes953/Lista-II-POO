@@ -10,7 +10,7 @@ public class ElevadorMain {
 		
 		System.out.println("Digite a capacidade do elevador: ");
 		capacidade = scan.nextInt();
-		System.out.println("Digite o nÃºmero de andares do prÃ©dio: ");
+		System.out.println("Digite o número de andares do prédio: ");
 		andares = scan.nextInt();
 		
 		Elevador e = new Elevador(andares, capacidade);
@@ -21,7 +21,8 @@ public class ElevadorMain {
 			op = e.menuElevador();
 		
 		System.out.println("Menu finalizado!\n");
-
+		
+		scan.close();
 	}
 
 }

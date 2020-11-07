@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class Prova {
 	private double nota;
 	private int acertos;
-	//lista de char que conter√° as respostas do aluno
+	//lista de char que conter· as respostas do aluno
 	ArrayList<Character> respostas = new ArrayList<>(); 
 	Gabarito gab = new Gabarito();
 	Scanner scan = new Scanner(System.in);
 	
-	public Prova(Gabarito gab) { //m√©todo construtor
+	public Prova(Gabarito gab) { //mÈtodo construtor
 		this.gab=gab;
 		nota=0;
 		acertos=0;
@@ -32,12 +32,12 @@ public class Prova {
 	public void responderProva(int tam) {
 		char r;
 		
-		//√≠ndice 0 -> resposta da quest√£o 1
+		//Õndice 0 -> resposta da quest„o 1
 		for(int i=0;i<tam;i++) {
-			System.out.println("Digite a resposta para a quest√£o [" + (i+1) + "]: ");
-			this.responderQ(scan.next().charAt(0)); //l√™ o primeiro char recebido do teclado
+			System.out.println("Digite a resposta para a quest„o [" + (i+1) + "]: ");
+			this.responderQ(scan.next().charAt(0)); //lÍ o primeiro char recebido do teclado
 			r=scan.next().charAt(0);
-			if(Character.isLetter(r)) //verifica se o que foi digitado √© um char
+			if(Character.isLetter(r)) //verifica se o que foi digitado È um char
 				this.responderQ(r);
 			else
 				i--;
@@ -46,8 +46,8 @@ public class Prova {
 	}
 	
 	private void calcAcertos() {
-		/* √≠ndice<10 -> nota+=0.5
-		 * √≠ndice<10 -> nota+=1	*/
+		/* Õndice<10 -> nota+=0.5
+		 * Õndice<10 -> nota+=1	*/
 		for(int i=0;i<15;i++) {
 			if(respostas.get(i)==gab.respostaQuestao(i)) {
 				acertos++;
@@ -72,8 +72,7 @@ public class Prova {
 		
 		System.out.println("\nAcertos: "+getAcertos());
 		System.out.println("\nNota: "+getNota());
-		//debug -> retorna tamanho da lista
-		System.out.println("\n\nTamanho: " + gab.getSize());
+		//System.out.println("\n\nTamanho: " + gab.getSize()); //debug -> retorna tamanho da lista
 	}
 
 	public void calcNota() {

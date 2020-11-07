@@ -12,20 +12,20 @@ public class VetorMain {
 
 		for(i=0;i<tam;i++) { //preenchendo vetor
 			try {
-				System.out.println("Digite a posiÃ§Ã£o: ");
+				System.out.println("Digite a posição: ");
 				pos = Integer.parseInt(scan.nextLine());
-				System.out.println("Digite o nÃºmero: ");
+				System.out.println("Digite o número: ");
 				vector[pos] = Integer.parseInt(scan.nextLine());
 			}
 			catch(ArrayIndexOutOfBoundsException e){
 				System.out.println("Vish, deu bronca aqui hein...");
-				System.out.println("Esse nÃ£o Ã© um Ã­ndice vÃ¡lido...");
+				System.out.println("Esse não é um índice válido...");
 				//e.printStackTrace();
 				break;
 			}
 			catch(NumberFormatException e) {
 				System.out.println("Vish, deu bronca aqui hein...");
-				System.out.println("Essa entrada nÃ£o Ã© um nÃºmero...");
+				System.out.println("Entrada não é um número...");
 				//e.printStackTrace();
 				break;
 			}

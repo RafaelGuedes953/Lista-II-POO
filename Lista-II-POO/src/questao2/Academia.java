@@ -49,7 +49,7 @@ public class Academia {
 			}
 			else
 				if(i==a.size())
-					System.out.println("Aluno nÃ£o encontrado!\nRecomendamos realizar o cadastro!");
+					System.out.println("Aluno não encontrado!\nRecomendamos realizar o cadastro!");
 		}
 	}
 	
@@ -68,7 +68,7 @@ public class Academia {
 					System.out.println("	Professor -> "+pAtual.getNome());
 				}
 				else
-					System.out.println("	Professor -> NÃ£o atribuÃ­do");
+					System.out.println("	Professor -> Não atribuído");
 			}
 			System.out.println("****************");
 		}
@@ -97,12 +97,12 @@ public class Academia {
 			alunoAtual=a.get(i);
 			if(cpf.equals(alunoAtual.getCpf())){
 				alunoAtual.setProfId(id);
-				System.out.println("AtribuÃ­do com sucesso!");
+				System.out.println("Atribuído com sucesso!");
 				break;
 			}
 			else
 				if(i==a.size())
-					System.out.println("Erro! Aluno nÃ£o encontrado!");
+					System.out.println("Erro! Aluno não encontrado!");
 		}
 	}
 	
@@ -111,7 +111,7 @@ public class Academia {
 		
 		if(tam>0)
 			for(int i=0;i<tam;i++) {
-				System.out.print("\nDigite o exercÃ­cio ["+i+"]: ");
+				System.out.print("\nDigite o exercício ["+i+"]: ");
 				alunoAtual.exerc.add(scan.nextLine());
 			}
 		else
@@ -129,10 +129,10 @@ public class Academia {
 		System.out.println("	4 - Mostrar professores");
 		System.out.println("	5 - Mostrar alunos");
 		System.out.println("	6 - Atribuir professor");
-		System.out.println("	7 - Adicionar exercÃ­cios");
+		System.out.println("	7 - Adicionar exercícios");
 		System.out.println("	0 - Encerrar");
 		System.out.println("*************************");
-		System.out.println("\nDigite uma opÃ§Ã£o: ");
+		System.out.println("\nDigite uma opção: ");
 		op = Integer.parseInt(scan.nextLine());
 		
 		switch(op) {
@@ -177,20 +177,20 @@ public class Academia {
 					atribuirProf(cpf, id);
 				}
 				else
-					System.out.println("Favor cadadtrar um professor antes da atribuiÃ§Ã£o!");
+					System.out.println("Favor cadastrar um professor antes da atribuição!");
 				break;
 				
 			case 7:
 				//editar lista de exercÃ­cios de determinado aluno
-				System.out.println("Ãndice do aluno: ");
+				System.out.println("Índice do aluno: ");
 				id=Integer.parseInt(scan.nextLine());
-				System.out.println("Quantos exercÃ­cios serÃ£o adicionados? ");
+				System.out.println("Quantos exercícios serão adicionados? ");
 				tam=Integer.parseInt(scan.nextLine());
 				editarExercicios(id, tam);
 				break;
 				
 			default:
-				System.out.println("OpÃ§Ã£o invÃ¡lida!");
+				System.out.println("Opção inválida!");
 		}
 		
 		return op;

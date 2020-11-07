@@ -14,6 +14,7 @@ public class AcademiaMain {
 			op=acad.Menu();
 		}
 		
+		scan.close();
 	}
 
 }

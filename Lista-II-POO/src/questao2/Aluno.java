@@ -10,7 +10,7 @@ public class Aluno {
 	public Aluno(String cpf, String nome) {
 		setCpf(cpf);
 		setNome(nome);
-		setProfId(-1); //nenhum professor atribu√≠do
+		setProfId(-1); //nenhum professor atribuÌdo
 	}
 
 	public String getCpf() {
@@ -42,7 +42,7 @@ public class Aluno {
 	}
 	
 	public void mostraExerc() {
-		System.out.println("**** Exerc√≠cios ****");
+		System.out.println("**** ExercÌcios ****");
 		for(int i=0;i<exerc.size();i++)
 			System.out.println("["+i+"] -> "+exerc.get(i));
 	}
@@ -54,7 +54,7 @@ public class Aluno {
 	}
 	
 	public void atribuiProf(int profId) {
-		this.profId = profId; //√≠ndice referente ao professor respons√°vel
+		this.profId = profId; //Õndice referente ao professor respons·vel
 	}
 
 }

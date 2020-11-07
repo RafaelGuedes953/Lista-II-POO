@@ -3,19 +3,19 @@ package questao6;
 public class data {
 	private int dia, mes, ano;
 	
-	public data(int dia, int mes, int ano) { //m√©todo construtor
-		if(mes==2 && (dia<0 || dia>29)) //mes fevereiro n√£o tem mais de 29 dias
+	public data(int dia, int mes, int ano) { //mÈtodo construtor
+		if(mes==2 && (dia<0 || dia>29)) //mÍs fevereiro n„o tem mais de 29 dias
 			setAnoPadrao();
 		else {
 			if((mes==4 || mes==6 || mes==9 || mes==11)
-				&& (dia<0 || dia>30)) { //meses que n√£o tem mais de 30 dias
+				&& (dia<0 || dia>30)) { //meses que n„o tem mais de 30 dias
 				setAnoPadrao();
 			}
 			else {
-				if((dia<0 || dia>31)) // por exclus√£o, meses que n√£o tem mais de 31 dias
+				if((dia<0 || dia>31)) // por exclus„o, meses que n„o tem mais de 31 dias
 					setAnoPadrao();
 				else {
-					if (ano<0 || ano>2100) //faixa v√°lida de anos
+					if (ano<=1 || ano>2100) //faixa v·lida de anos
 						setAnoPadrao();
 					else {
 						this.mes = mes;
@@ -48,7 +48,7 @@ public class data {
 			case 2:
 				return "Fevereiro";
 			case 3:
-				return "Mar√ßo";
+				return "MarÁo";
 			case 4:
 				return "Abril";
 			case 5:
@@ -68,7 +68,7 @@ public class data {
 			case 12:
 				return "Dezembro";
 			default:
-				return "*****Inv√°lido*****";				
+				return "*****Inv·lido*****";				
 				
 		}
 	}
@@ -80,15 +80,15 @@ public class data {
 	public int compara(data d) {
 		if (d.dia==this.dia && d.mes==this.mes && d.ano==this.ano) //datas iguais
 			return 0;
-		if(	   (this.ano>d.ano) //data corrente maior que par√¢metro
+		if(	   (this.ano>d.ano) //data corrente maior que par‚metro
 			|| (this.ano==d.ano && this.mes>d.mes) 
 			|| (this.ano==d.ano && this.mes==d.mes && this.dia>d.dia))
 			return 1;
-		return -1; //par√¢metro maior que data corrente
+		return -1; //par‚metro maior que data corrente
 	}
 	
 	public boolean isBissexto() {
-		// ano bissexto se for divis√≠vel por 400 ou divis√≠vel por 4 e n√£o por 100 
+		// ano bissexto se for divisÌvel por 400 ou divisÌvel por 4 e n„o por 100 
 
 		if((getAno() % 400 == 0) || ((getAno() % 4 == 0) && (getAno() % 100 != 0)))
             return true;

@@ -33,8 +33,8 @@ public class Elevador {
 
 	public void setQtdPessoas(int coef) {
 		/* coef -> coeficiente
-		 * se o parametro for 0 e Ã± estiver cheio, acrescenta 1
-		 * se for 1 e Ã± estiver vazio, diminui 1
+		 * se o parametro for 0 e não estiver cheio, acrescenta 1
+		 * se for 1 e não estiver vazio, diminui 1
 		 */
 		if(coef==0 && (getQtdPessoas()<getCapacidade()))
 			qtdPessoas+=1;
@@ -56,7 +56,7 @@ public class Elevador {
 
 	public void setAndarAtual(int coef) {
 		/* coef -> coeficiente
-		 * se o parametro for 0 e Ã± estiver no Ãºltimo andar, acrescenta 1
+		 * se o parametro for 0 e não estiver no último andar, acrescenta 1
 		 * se for 1, diminui 1
 		 */
 		if(coef==0 && (getAndarAtual()<getAndares()))
@@ -66,9 +66,9 @@ public class Elevador {
 				andarAtual-=1;
 			else {
 				if(getAndarAtual()==getAndares())
-					System.out.println("Ãšltimo andar alcanÃ§ado!\n");
+					System.out.println("Último andar alcançado!\n");
 				else
-					System.out.println("TÃ©rreo alcanÃ§ado!\n");
+					System.out.println("Térreo alcançado!\n");
 			}
 		}	
 	}
@@ -76,13 +76,13 @@ public class Elevador {
 	public void subir() {
 		setAndarAtual(0);
 		System.out.println("Andar atual = "+getAndarAtual()+"\n");
-		System.out.println("Ãšltimo andar = "+getAndares()+"\n");
+		System.out.println("Último andar = "+getAndares()+"\n");
 	}
 	
 	public void descer() {
 		setAndarAtual(1);
 		System.out.println("Andar atual = "+getAndarAtual()+"\n");
-		System.out.println("Ãšltimo andar = "+getAndares()+"\n");
+		System.out.println("Último andar = "+getAndares()+"\n");
 	}
 	
 	public void entrar() {
@@ -106,7 +106,7 @@ public class Elevador {
 		System.out.println("	4 - Descer");
 		System.out.println("	0 - Encerrar");
 		System.out.println("*************************");
-		System.out.println("\nDigite uma opÃ§Ã£o: ");
+		System.out.println("\nDigite uma opção: ");
 		int op = scan.nextInt();
 		
 		switch(op) {
@@ -125,7 +125,7 @@ public class Elevador {
 				descer();
 				break;
 			default:
-				menuElevador(); //opÃ§Ã£o digitada invÃ¡lida	
+				menuElevador(); //opção digitada inválida	
 		}
 		return op;
 	}

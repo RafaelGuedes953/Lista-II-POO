@@ -12,13 +12,13 @@ public class voo {
 	public voo(int id, int dia, int mes, int ano) { //construtor
 		this.id = id;
 		d = new data(dia, mes, ano);
-		if (d.getDia()==1)
-			System.out.println("Valor de data inv√°lida inserida!!!");
+		if (d.getAno()==1)
+			System.out.println("Valor de data inv·lida inserida!!!");
 		qtdPassageiros = 0;
 		assentos = new int[tam];
 		livres = new int[tam];
 		for(int i=0;i<tam;i++) //preenche vetor dos assentos livres
-			livres[i]=i+1; //n√∫mero dos assentos come√ßando de 1
+			livres[i]=i+1; //n˙mero dos assentos comeÁando de 1
 	}
 	
 	public void setTamanho(int tam) {
@@ -44,7 +44,7 @@ public class voo {
 	private boolean verifica(int n) {
 		for(int i=0;i<=getPassageiros();i++)
 			if(assentos[i]==n)
-				return false; //assento est√° ocupado
+				return false; //assento est· ocupado
 		return true; //assento liberado
 	}
 	
@@ -58,8 +58,8 @@ public class voo {
 		return false;
 	}
 	
-	public int vagas() { //retorna o n√∫mero de vagas dispon√≠veis
-		System.out.println("Quantidade de vagas dispon√≠veis: " + (tam-qtdPassageiros));
+	public int vagas() { //retorna o n˙mero de vagas disponÌveis
+		System.out.println("Quantidade de vagas disponÌveis: " + (tam-qtdPassageiros));
 		return tam-qtdPassageiros;
 	}
 	
@@ -75,7 +75,7 @@ public class voo {
 	}
 	
 	public int proximoLivre() {
-		return menor(livres, tam); //retorna o indice do primeiro assento dispon√≠vel +1
+		return menor(livres, tam); //retorna o indice do primeiro assento disponÌvel +1
 	}
 
 }

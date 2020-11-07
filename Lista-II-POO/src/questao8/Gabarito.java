@@ -15,7 +15,7 @@ public class Gabarito {
 		resp.add(r);
 	}
 	
-	public char getResp(int q) { //q = numero da questÃ£o
+	public char getResp(int q) { //q = numero da questão
 		return resp.get(q);
 	}
 	
@@ -24,9 +24,9 @@ public class Gabarito {
 		
 		//Ã­ndice 0 -> resposta da questÃ£o 1
 		for(int i=0;i<tam;i++) {
-			System.out.println("Digite o gabarito da questÃ£o [" + (i+1) + "]: ");
+			System.out.println("Digite o gabarito da questão [" + (i+1) + "]: ");
 			r=scan.next().charAt(0);
-			if(Character.isLetter(r)) //verifica se o que foi digitado Ã© um char
+			if(Character.isLetter(r)) //verifica se o que foi digitado é um char
 				this.setResp(r);
 			else
 				i--;

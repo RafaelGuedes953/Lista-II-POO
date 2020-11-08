@@ -10,7 +10,7 @@ public class EquipamentoMain {
 		
 		System.out.println("Quantidade de equipamentos: ");
 		num=scan.nextInt();
-		System.out.println("MÃªs corrente: ");
+		System.out.println("Mês corrente: ");
 		mesC=scan.nextInt();
 		
 		EquipamentoCorrigido equip = new EquipamentoCorrigido(num,mesC);

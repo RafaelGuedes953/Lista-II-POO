@@ -11,12 +11,12 @@ public class ExcecaoAcimaDeCem extends Exception {
 		this.n = n;
 		this.cont = cont;
 		System.out.println("Soma = " + this.n);
-		System.out.println("Quantidade de nÃºmeros = " + this.cont);
+		System.out.println("Quantidade de números = " + this.cont);
 		
 		if(cont>0)
 			media=n/cont;
 			
-		System.out.println("MÃ©dia = " + media);
+		System.out.println("Média = " + media);
 	}
 
 	@Override

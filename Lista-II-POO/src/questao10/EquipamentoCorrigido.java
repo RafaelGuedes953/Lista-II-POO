@@ -21,7 +21,7 @@ public class EquipamentoCorrigido extends Equipamento{
 		if(mesCorrente>0 && mesCorrente<=12)
 			this.mesCorrente = mesCorrente;
 		else
-			System.out.println("M√™s inv√°lido!");
+			System.out.println("MÍs inv·lido!");
 	}
 	
 	public void addMesCorrente() {
@@ -33,7 +33,7 @@ public class EquipamentoCorrigido extends Equipamento{
 			return mesCompra[ind];
 		}
 		catch(Exception e) {
-			System.out.println("Entrada inv√°lida!");
+			System.out.println("Entrada inv·lida!");
 			return -1;
 		}
 	}
@@ -43,7 +43,7 @@ public class EquipamentoCorrigido extends Equipamento{
 			this.mesCompra[ind] = mesCompra;
 		}
 		catch(Exception e) {
-			System.out.println("Entrada inv√°lida!");
+			System.out.println("Entrada inv·lida!");
 		}
 	}
 	
@@ -72,17 +72,17 @@ public class EquipamentoCorrigido extends Equipamento{
 			this.setMesCorrente(novo.getMesCorrente());
 		}
 		else
-			System.out.println("Objetos n√£o possuem o mesmo tamanho!");
+			System.out.println("Objetos n„o possuem o mesmo tamanho!");
 	}
 	
 	//adicionar aos vetores
 	public void addEquipamento() {
 		int ind, valor, mesCompra;
-		System.out.println("√çndice: ");
+		System.out.println("Õndice: ");
 		ind=scan.nextInt();
 		System.out.println("Valor: ");
 		valor=scan.nextInt();
-		System.out.println("M√™s compra: ");
+		System.out.println("MÍs compra: ");
 		mesCompra=scan.nextInt();
 		
 		this.setMesCompra(ind, mesCompra);
@@ -93,7 +93,7 @@ public class EquipamentoCorrigido extends Equipamento{
 		System.out.println("********** Valores *********");
 		for(int i=0;i<this.getNumeroEquipamentos();i++) {
 			if(this.getValor(i)!=0)
-				System.out.println("pos ["+i+"] -> Valor="+this.getValor(i)+", M√™s ->"+this.getMesCompra(i));
+				System.out.println("pos ["+i+"] -> Valor="+this.getValor(i)+", MÍs ->"+this.getMesCompra(i));
 			
 		}
 		System.out.println("****************************");
@@ -105,7 +105,7 @@ public class EquipamentoCorrigido extends Equipamento{
 		System.out.println("	2 - Corrigir valores");
 		System.out.println("	3 - Mostrar valores");
 		System.out.println("****************************");
-		System.out.println("\nEscolha uma op√ß√£o: ");
+		System.out.println("\nEscolha uma opÁ„o: ");
 		int op=scan.nextInt();
 		
 		switch(op) {
@@ -116,14 +116,14 @@ public class EquipamentoCorrigido extends Equipamento{
 				this.addEquipamento();
 				break;
 			case 2:
-				System.out.println("Digite o percentual de corre√ß√£o: ");
+				System.out.println("Digite o percentual de correÁ„o: ");
 				this.corrige(scan.nextInt());
 				break;
 			case 3:
 				mostraInfo();
 				break;
 			default:
-				System.out.println("Digite uma op√ß√£o v√°lida!");
+				System.out.println("Digite uma opÁ„o v·lida!");
 				menu();
 		}
 		

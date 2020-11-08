@@ -1,9 +1,9 @@
 package questao6;
 
-public class data {
+public class Data {
 	private int dia, mes, ano;
 	
-	public data(int dia, int mes, int ano) { //método construtor
+	public Data(int dia, int mes, int ano) { //método construtor
 		if(mes==2 && (dia<0 || dia>29)) //mês fevereiro não tem mais de 29 dias
 			setAnoPadrao();
 		else {
@@ -82,7 +82,7 @@ public class data {
 		System.out.println("Data atual: "+getDia()+"/"+getMes()+"/"+getAno());
 	}
 	
-	public int compara(data d) {
+	public int compara(Data d) {
 		if (d.dia==this.dia && d.mes==this.mes && d.ano==this.ano) //datas iguais
 			return 0;
 		if(	   (this.ano>d.ano) //data corrente maior que parâmetro
@@ -101,8 +101,8 @@ public class data {
             return false;
 	}
 
-	public data clone() {
-		data nD = new data(getDia(),getMes(),getAno());
+	public Data clone() {
+		Data nD = new Data(getDia(),getMes(),getAno());
 		return nD;
 	}
 }

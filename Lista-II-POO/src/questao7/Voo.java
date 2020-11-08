@@ -1,27 +1,29 @@
 package questao7;
 
-import questao6.data;
+import questao6.Data;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Voo {
-	private data d;
+	public Data d;
+	public Scanner scan = new Scanner(System.in);
 	private int id, tam=100;
 	//lista de ocupados, inicialmente vazia
-	ArrayList<Integer> ocupados, livres; //livres pode ser removido? verificar
-	//contador de instâncias da classe, utilizado para atribuir número do voo
+	ArrayList<Integer> ocupados, livres;
+	//contador de instâncias da classe, utilizado para atribuir número do voo (id)
 	public static int contVoo=0;
-	Scanner scan = new Scanner(System.in);
 	
-	public Voo(int dia, int mes, int ano) { //construtor
+	
+	public Voo(int dia, int mes, int ano, int tam) { //construtor
 		this.id = contVoo+100;
 		contVoo++;
-		d = new data(dia, mes, ano);
+		d = new Data(dia, mes, ano);
 		if (d.getAno()==1)
 			System.out.println("Valor de data inválida inserida!!!");
 		ocupados = new ArrayList<>();
 		livres = new ArrayList<>();
-		for(int i=0;i<tam;i++) //preenche vetor dos assentos livres
+		setTamanho(tam);
+		for(int i=0;i<getTamanho();i++) //preenche vetor dos assentos livres
 			livres.add(i); //número dos assentos começando de 0 até tamanho definido*/
 	}
 	
@@ -38,16 +40,18 @@ public class Voo {
 	}
 	
 	public void addPassageiro(int assento) {
-		//antes verificar se assento está ocupado
-		if(ocupados.size()==tam || verifica(assento)) {
-			ocupados.add(assento); //ocupa o assento
-			//remover onde tem o número do assento
-			livres.removeIf(livres -> livres.equals(assento));
-			//livres.remove(assento);	//remove assento da lista de livres
+		//antes verificar se assento está ocupado ou se assento existe
+		if(assento>getTamanho() || assento<0) {
+			System.out.println("Assento indisponível!");
 		}
-		else
-			System.out.println("Assento está ocupado!");
-		
+		else {
+			if(ocupados.size()==getTamanho() || verifica(assento)) {
+				ocupados.add(assento); //ocupa o assento
+				livres.removeIf(livres -> livres.equals(assento)); //remove assento da lista de livres
+			}
+			else
+				System.out.println("Assento está ocupado!");
+		}
 	}
 	
 	private boolean verifica(int n) {

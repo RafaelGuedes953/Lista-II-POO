@@ -11,7 +11,7 @@ public class SomaMain {
 		
 		do {
 			try {
-				System.out.println("Insira um número para a soma: ");
+				System.out.println("Insira um n�mero para a soma: ");
 				n = scan.nextInt();
 				if (soma+n>100)
 					throw new ExcecaoAcimaDeCem(soma,cont); //lança a exception criada
